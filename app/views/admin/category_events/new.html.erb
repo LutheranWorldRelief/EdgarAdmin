@@ -1,0 +1,45 @@
+<br><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-10 offset-md-1" style="background-color: #5f852d; color: #fff;">
+			<br>
+			<h3 class="">Nueva Categoría</h3>
+			<br>
+		</div>
+		<div class="col-md-10 offset-md-1 edgar-container">
+			<% if @category_events.errors.any? %>
+				<div id="error_explanation">
+				  <h2>
+				    <%= "#{pluralize(@category_events.errors.count, "error")} error al almacenar:" %>
+				  </h2>
+				  <ul>
+				    <% @category_events.errors.full_messages.each do |msg| %>
+				      <li>
+				        <%= msg %>
+				      </li>
+				    <% end %>
+				  </ul>
+				</div>
+			<% end %>
+			<%= simple_form_for [:admin, @category_events] do |f| %>
+			<br>
+				<%= render partial: "admin/category_events/partials/form", locals: { f: f } %>
+				<div class="col-md-12">
+					<div class="form-group">
+						<br>
+	          <%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_category_events_path, class: "btn btn-form" %>
+						<%= f.submit ("Guardar") , class: "btn btn-form-cancel" %>
+					</div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+		<br>
+	</div>
+</div>
+<% content_for :script_links do %>
+
+<% end %>
+  
+  
+  

@@ -1,0 +1,54 @@
+<div class="container">
+	<br><br>
+	<div class="col-md-10 offset-md-1">
+		<br>
+		<h1 class="text-center">Configuraciones</h1>
+	</div>
+	<br><br>
+	<div class="row">
+			<div class="col-md-2 text-center config-menu-item">
+				<a href="/admin/countries">
+					<div class="col-md-12 text-center config-item">
+						<i class="fa fa-globe" aria-hidden="true"></i>
+						<br>
+						<h5>Paises</h5>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-2 text-center config-menu-item">
+				<a href="/admin/category_events">
+					<div class="col-md-12 text-center config-item">
+						<i class="fa fa-calendar" aria-hidden="true"></i>
+						<h5>Categoría de Eventos</h5>
+					</div>
+				</a>
+			</div>
+			<% if current_user.has_role? :admin %>
+			<div class="col-md-2 text-center config-menu-item">
+				<a href="/admin/users">
+					<div class="col-md-12 text-center config-item">
+						<i class="fa fa-users" aria-hidden="true"></i>
+						<h5>Usuarios</h5>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-2 text-center config-menu-item">
+				<a href="/admin/users/admins">
+					<div class="col-md-12 text-center config-item">
+						<i class="fa fa-wrench" aria-hidden="true"></i>
+						<h5>Administradores</h5>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-2 text-center config-menu-item">
+				<a href="/admin/assignations">
+					<div class="col-md-12 text-center config-item">
+						<i class="fa fa-commenting-o" aria-hidden="true"></i>
+						<h5>Asignaciones</h5>
+					</div>
+				</a>
+			</div>
+			<% end %>
+	</div>
+</div>
+<br><br><br>

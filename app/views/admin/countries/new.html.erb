@@ -1,0 +1,31 @@
+<br><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-6 offset-md-3" style="background-color: #5f852d; color: #fff;">
+			<br>
+			<h3 class="">Nuevo País</h3>
+			<br>
+		</div>
+		<div class="col-md-6 offset-md-3 edgar-container">
+			<%= simple_form_for [:admin, @countries] do |f| %>
+			<br>
+				<%= render partial: "admin/countries/partials/form", locals: { f: f } %>
+				<div class="col-md-12">
+					<div class="form-group">
+						<br>
+	          <%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_countries_path, class: "btn btn-form" %>
+						<%= f.submit ("Guardar"), class: "btn btn-form-cancel" %>
+					</div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+		<br>
+	</div>
+</div>
+<% content_for :script_links do %>
+
+<% end %>
+  
+  
+  

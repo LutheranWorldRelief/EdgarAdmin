@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <%= image_tag("logotipo-navbar.png", class:"img-fluid", style:"width: 125px; height: auto; margin: auto;")%>
+    </a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarEdgarAdmin" aria-controls="navbarEdgarAdmin" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse navbarEdgarAdmin" id="navbarEdgarAdmin" style="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <%= link_to "<i class='fa fa-calendar-o' aria-hidden='true'></i> Eventos".html_safe, admin_events_path, class: "nav-link", title:"Eventos" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "<i class='fa fa-file-text' aria-hidden='true'></i> Documentos".html_safe, admin_documents_path, class: "nav-link", title:"Documentos" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "<i class='fa fa-play' aria-hidden='true'></i> Tutoriales".html_safe, admin_tutorials_path, class: "nav-link", title:"Tutoriales" %>
+        </li>
+        <% if current_user.has_role? :admin %>
+        <li class="nav-item active">
+          <%= link_to "<i class='fa fa-cog' aria-hidden='true'></i> Configuraciones".html_safe, 
+                admin_configurations_path, class: "nav-link", title:"Configuraciones" %>
+        </li>
+        <% end %>
+      </ul>
+      <ul class="welcome-user my-2 my-md-0" style="list-style: none;">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>Bienvenido</b> <%= current_user.email %>
+          </a>
+          <div class="dropdown-menu welcome-item" aria-labelledby="dropdown07">
+            <%= link_to "<i class='fa fa-sign-out' aria-hidden='true'></i> Cerrar Sesión".html_safe, destroy_user_session_path, method: :delete, class: "dropdown-item", title:"Cerrar Sesión" %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

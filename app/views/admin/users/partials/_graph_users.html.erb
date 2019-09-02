@@ -1,0 +1,63 @@
+<div id="container" style="width: 100%; height: 400px; margin: 0 auto; padding: 5px;"></div>
+<script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'PARTICIPANTES POR EDAD<br>EN EDGAR APP'
+    },
+    xAxis: {
+    	title: {
+    		text:'Edades'
+    	},
+      categories: ['0-14', '15-24', '25-34', '35-44', '45-54', '55-64', '65-100', 'N/A']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Cantidad de personas'
+        },
+        stackLabels: {
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    legend: {
+        align: 'right',
+        x: -30,
+        verticalAlign: 'top',
+        y: 25,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+    },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        name: 'Hombres',
+        data: <%= @data_m %>,
+        color: '#926146'
+    }, {
+        name: 'Mujeres',
+        data: <%= @data_f %>,
+        color: '#f5dab8'
+    }]
+});
+</script>

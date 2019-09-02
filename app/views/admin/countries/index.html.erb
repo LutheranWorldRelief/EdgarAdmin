@@ -1,0 +1,30 @@
+<div class="col-xs-12 col-sm-6 offset-sm-3 col-md-6 offset-md-3 padding-btn-container">
+	<br>
+	<br>
+		<%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_configurations_path, class: "btn btn-form float-right" %>
+		<%= link_to "<i class='fa fa-plus-circle' aria-hidden='true'></i> Agregar País".html_safe, new_admin_country_path, class: "btn btn-form-cancel" %>
+	<br>
+	<br>
+</div>
+<div class="edgar-container col-xs-12 col-sm-6 offset-sm-3 col-md-6 offset-md-3" style="padding-right: 0px; padding-left: 0px;">
+	<table class="table">
+		<thead>
+			<tr>
+				<th class="" width="75%" style="padding-left: 5rem;">País</th>
+				<th class="text-center"></th>
+			</tr>
+		</thead>
+		<tbody id="countries">
+			<%- @countries.each do |c| %>
+			<tr>
+				<td style="padding-left: 5rem;"><%= c.name %></td>
+				<td class="text-center td-padding-none">
+					<%= link_to "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>".html_safe, edit_admin_country_path(c), class: "btn btn-edit", style:"padding: 0px;text-align:center;" %>
+					<%= link_to "<i class='fa fa-trash-o' aria-hidden='true'></i>".html_safe, admin_country_path(c), method: :delete, data: {:confirm => "¿Esta seguro de eliminar el país?" } , class: "btn btn-edit" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate @countries, class:"apple_pagination"  %>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-group col-md-8">
+	<%= f.input :name, label: "Título:", label_html: { class: 'label-title'}, input_html: {class: 'col-md-12 form-control'}, placeholder: "Escriba el nombre del documento..." %>
+</div>
+<div class="form-group col-md-8">
+	<%= f.input :file, label: "Archivo:", label_html: { class: 'label-title'}, input_html: {class: 'col-md-12 form-control', accept: '.pdf'} %>
+</div>
+<div class="col-md-12">
+	<%= f.label :status, label:"Estado del Documento", class: "label-title" %><br />
+	<%= f.label :status, "Publicar", :value => "1"  %>
+	<%= f.radio_button :status, 1 %>
+	<%= f.label :status, "Ocultar", :value => "0" %>
+	<%= f.radio_button :status, 0 %>
+</div>

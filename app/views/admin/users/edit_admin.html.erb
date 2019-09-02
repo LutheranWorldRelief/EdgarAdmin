@@ -1,0 +1,47 @@
+<br><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-10 offset-md-1" style="background-color: #5f852d; color: #fff;">
+			<br>
+			<h3 class="">Editar administrador</h3>
+			<br>
+		</div>
+		<div class="col-md-10 offset-md-1 edgar-container">
+			<% if @user.errors.any? %>
+				<div id="error_explanation">
+				  <h2>
+				    <%= "#{pluralize(@user.errors.count, "error")} error al almacenar:" %>
+				  </h2>
+				  <ul>
+				    <% @user.errors.full_messages.each do |msg| %>
+				      <li>
+				        <%= msg %>
+				      </li>
+				    <% end %>
+				  </ul>
+				</div>
+			<% end %>
+			<%=  simple_form_for @user, url: update_admin_admin_user_path(@user), method: :put do |f|  %>
+			<br>
+				<div class="col-md-12">
+					<%= render partial: "admin/users/partials/form_edit_admin", locals: { f: f } %>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<br>
+	          <%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admins_admin_users_path, class: "btn btn-form" %>
+						<%= f.submit ("Actualizar") , class: "btn btn-form-cancel" %>
+					</div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+		<br>
+	</div>
+</div>
+<script>
+	$('.datepicker').datepicker({
+    format: 'dd-mm-yyyy',
+    language: 'es'
+	});
+</script>

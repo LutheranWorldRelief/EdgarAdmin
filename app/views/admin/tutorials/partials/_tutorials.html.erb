@@ -1,0 +1,7 @@
+<% @tutorials.each do |t| %>
+	<tr>
+		<td><%= link_to t.name, admin_tutorial_path(t), remote: true %></td>
+		<td><%= link_to t.video_link, admin_tutorial_path(t), remote: true %></td>
+		<td><%= link_to "Eliminar".html_safe, admin_tutorial_path(t), data: { confirm: "¿Está seguro de eliminar?" }, method: :delete, remote: true, class: "btn btn-danger" %></td>
+	</tr>
+<% end %>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edgar Administrador</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link href="/assets/favicon-32x32.png" rel="shortcut icon" type="image/x-icon" />
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag    'edgar_admin', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'edgar_admin' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.es.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://mislav.github.io/will_paginate/pagination.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sendbird@3.0.92/SendBird.min.js"></script>
+    <script src="https://sample.sendbird.com/widget/build/widget.SendBird.js"></script>
+    <%= yield :script_links %>
+  </head>
+
+  <body>
+  <% unless flash.empty? %>
+  <script type="text/javascript">
+    <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
+  </script>
+  <% end %>
+  <%unless current_user.nil?%>
+    <%= render "partials/menu"%>
+    <div id="sb_widget"></div>
+  <%end%>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  <%unless current_user.nil?%>
+    <%= render "partials/footer"%>
+    <%= render "partials/sendbird"%>
+  <%end%>
+  </body>
+</html>

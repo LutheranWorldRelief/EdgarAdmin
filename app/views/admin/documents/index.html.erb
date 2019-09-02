@@ -1,0 +1,50 @@
+<div class="col-md-10 offset-md-1 padding-btn-container">
+	<br>
+	<br>
+		<%= link_to "<i class='fa fa-plus-circle' aria-hidden='true'></i> Agregar Documento".html_safe, new_admin_document_path, class: "btn btn-form-cancel" %>
+	<br>
+	<br>
+</div>
+<div class="edgar-container col-md-10 offset-md-1" style="padding-right: 0px; padding-left: 0px;">
+	<table class="table">
+		<thead>
+			<tr>
+				<th width="78%">Nombre del Documento</th>
+				<th class="text-center td-padding-none" width="8%">Publicado</th>
+				<th class="text-center td-padding-none" width="8%">Archivo</th>
+				<th class="text-center td-padding-none" width="6%"></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody id="documents">
+			<%- @documents.each do |d| %>
+			<tr>
+				<td>
+					<% if d.file.nil? || d.file.blank? %>
+						<%= d.name %>
+					<% else %>
+					<a href="<%= d.file %>" target="_black" title="Ver <%= d.name %>" class="link-file">
+						<%= d.name %></a>
+					<% end %>
+				</td>
+				<td class="text-center"><%= d.status == 1 ? '<i class="fa fa-check-circle btn-active" aria-hidden="true" title="Publicado"></i>'.html_safe : '<i class="fa fa-minus-circle btn-disable" aria-hidden="true" title="No Publicado"></i>'.html_safe %></td>
+				<td class="text-center">
+					<% if d.file.nil? || d.file.blank? %>
+						
+					<% else %>
+						<a href="<%= d.file %>" download="<%= d.name %>" title="Descargar <%= d.name %>">
+							<i class="fa fa-download btn-download" aria-hidden="true"></i>
+						</a>
+					<% end %>
+				</td>
+				<td class="text-center td-padding-none">
+					<%= link_to "<i class='fa fa-pencil-square-o' aria-hidden='true' title='Editar'></i>".html_safe, edit_admin_document_path(d), class: "btn btn-edit", style:"padding: 0px;text-align:center;" %>
+					<%= link_to "<i class='fa fa-trash-o' aria-hidden='true'></i>".html_safe, admin_document_path(d), method: :delete, data: {:confirm => "¿Esta seguro de eliminar el documento?" } , class: "btn btn-edit" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+
+	</table>
+	<%= will_paginate @documents, class:"apple_pagination"  %>
+</div>

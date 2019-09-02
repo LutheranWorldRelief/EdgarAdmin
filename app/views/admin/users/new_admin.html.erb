@@ -1,0 +1,40 @@
+
+<br><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-10 offset-md-1" style="background-color: #5f852d; color: #fff;">
+			<br>
+			<h3 class="">Nuevo Admin</h3>
+			<br>
+		</div>
+		<div class="col-md-10 offset-md-1 edgar-container">
+			<%=  simple_form_for @user, url: create_admin_admin_users_path, method: :post do |f|  %>
+			<br>
+				<div class="col-md-12">
+					<%= render partial: "admin/users/partials/form_admin", locals: { f: f } %>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<br>
+	          <%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_users_path, class: "btn btn-form" %>
+						<%= f.submit ("Guardar") , class: "btn btn-form-cancel" %>
+					</div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+		<br>
+	</div>
+</div>
+<style>
+	.datepicker table tr td.active.active{
+		background-color: #955f43;
+	}
+</style>
+<script>
+	$('.datepicker').datepicker({
+    format: 'dd-mm-yyyy',
+    language: 'es'
+	});
+</script>
+  

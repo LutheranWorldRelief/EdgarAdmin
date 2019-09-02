@@ -1,0 +1,4 @@
+<h3>Hola, <%= @user.username %></h3>
+<p>Haz solicitado cambiar tu contraseña?</p>
+<p>Si usted no se ha enviado este correo ignorelo de lo contrario para hacer el cambio haga click en el enlace siguiente.</p>
+<%= link_to "Ir", user_configuration_home_index_url(token: @user.token) %>

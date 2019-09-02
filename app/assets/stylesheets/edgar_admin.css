@@ -1,0 +1,84 @@
+/** Body **/
+body {background-color: #f3ebde;color: #826144; position: relative;margin: 0;}
+html, body {font-family: 'Ubuntu';}
+
+/** Login CSS **/
+.login-container {top: 5rem;background-color: #ffffff;padding: 15px;}
+.field input {border: 3px #dad1bd solid;box-shadow: 0px;height: 35px !important;padding: 16px 10px;text-align: center;}
+.btn-login {background-color: #ac313e;color: #fff;border-radius: 0px;}
+
+/** Navbar CSS **/
+.navbar {background-color: #8F6249;padding-top: 0;padding-bottom: 0;font-family: 'Ubuntu';font-size: 15px;border-bottom: 5px solid #dad1bd;}
+.navbar-nav li {  padding-top: 10px;padding-bottom: 10px;font-weight: 500;}
+.navbar-nav li:hover {background-color: #78952A;color: #fff;}
+.welcome-user>li>a, .welcome-user>li>a:hover{color: #fff;}
+.welcome-item {right: 0;left: unset;border-radius: 0;}
+.welcome-item>a:hover {background-color: #AC313F;color: #fff;}
+.dropdown-menu.show {padding:0;}
+
+/** Container **/
+.edgar-container {background-color: #fff; margin-bottom: 2.5rem; padding-bottom: 1rem;}
+.padding-btn-container{padding-left: 0;}
+
+/** Fullcalendar **/
+.fc-day-grid-event .fc-time {display: none;}
+.fc-toolbar.fc-header-toolbar{padding: 2rem 1rem;background-color: #ac313e; border-color:#ac313e;}
+.fc-event{background-color: #283747; color: #fff !important;border-radius: 0px;padding: 0.2rem 1rem;}
+.fc-center{text-transform: uppercase;}
+.fc-month-button, .fc-agendaWeek-button, .fc-agendaDay-button, .fc-prev-button, .fc-next-button, .fc-today-button{background-color: #283747; border-color: #fff;}
+.fc-month-button:not(:disabled):not(.disabled).active, .fc-agendaWeek-button:not(:disabled):not(.disabled).active, .fc-agendaDay-button:not(:disabled):not(.disabled).active, .fc-prev-button:not(:disabled):not(.disabled).active, .fc-next-button:not(:disabled):not(.disabled).active, .fc-today-button:not(:disabled):not(.disabled).active, .fc-today-button:disabled{background-color: #5f852d; border-color: #fff;opacity: 1;}
+
+
+
+/** Event Form **/
+.radio {padding: 15px;}
+.btn-form {background-color: #283747 !important;color: #fff !important;font-size: 14px !important;font-family: 'Ubuntu' !important;padding: 8px 20px !important;height: auto !important;border-radius: 0px !important;}
+.btn-form:hover {background-color: #5f852d !important;}
+.btn-form-cancel {background-color: #8F6249 !important;color: #fff !important;font-size: 14px !important;font-family: 'Ubuntu' !important;padding: 8px 20px !important;height: auto !important;border-radius: 0px !important;}
+.form-group input {height: 40px;border-radius: 0px;background-color: rgba(240,240,240,0.3);font-family: 'Ubuntu';border: 0px;}
+.form-group select {height: 35px;border-radius: 0px;background-color: rgba(240,240,240,0.3);font-family: 'Ubuntu';border: 0px;}
+.form-group textarea {border-radius: 0px;background-color: rgba(240,240,240,0.3);font-family: 'Ubuntu';border: 0px;}
+.label-title {font-weight: bold;}
+.input-hidden {position: absolute;left: -9999px;}
+.btn-edit{color:#ac313e;font-size: 20px;font-weight: bold;padding: 0px;text-align:center;}
+
+/** Table index **/
+th, hr {border: 0px;}
+tbody {color: #000;}
+.table thead th {border-top: none;}
+.table td {border-top: 0px;}
+.btn {border-radius: 0px;}
+.table th{padding: 1rem 1.5rem 1rem 1.5rem;}
+.table td{padding: 0.5rem 1.5rem 0.2rem 1.5rem;}
+.td-padding-none{padding-left: 0 !important; padding-right: 0 !important;}
+
+/** Will Paginate **/
+.apple_pagination {background-color: #fff !important;border: 0px !important;padding: 0 0 2rem 0 !important;font-family: 'Ubuntu';font-size: 15px;}
+.apple_pagination .current {background-color: #ac313e !important;color: #fff !important;border-radius: 0px !important;font-weight: 500;}
+
+/** Fontawesome **/
+.btn-download {font-size: 20px;color: #ac313e !important;vertical-align: middle;}
+.btn-active {font-size: 20px; color: #5f852d;}
+.btn-disable {font-size: 20px; color: #F5B041;}
+.btn-edit{color:#273746;font-size: 20px;font-weight: bold;}
+.btn-stop{color:#ac313e;font-size: 20px;font-weight: bold;}
+
+/** Select2 **/
+.select2-selection, .select2-selection--single, .select2-results__option, .select2-results__option--highlighted {height: 35px !important;border-radius: 0px !important;background-color: rgba(240,240,240,0.3) !important;font-family: 'Ubuntu' !important;border: 0px !important;}
+.select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {color: #000;font-size: 15px;font-family: 'Ubuntu' !important;}
+.minicolors-theme-default .minicolors-input {height: 35px !important;border-radius: 0px !important;background-color: rgba(240,240,240,0.3) !important;font-family: 'Ubuntu' !important;border: 0px !important;}
+.minicolors-theme-default .minicolors-swatch {top: 0px;left: 0px;height: 100%;width: 25%;}
+.minicolors-theme-default .minicolors-input {padding-left: 30%;}
+
+/** Menú configuración  **/
+.config-menu-item{padding: 0px; color: #8F6249;}
+.config-menu-item:hover{background-color: #ac313e; color: #fff !important;}
+.config-menu-item>a{text-decoration: none; color: #8F6249;}
+.config-menu-item>a:hover{color: #fff;}
+.config-item{padding: 15px 0px;}
+.config-item i{font-size: 35px;}
+.config-item h5{font-size: 15px;padding-top: 10px;}
+
+/** **/
+.link-file{text-decoration: none; color:#000;}
+.link-file:hover{text-decoration: none; color:#5f852d;}

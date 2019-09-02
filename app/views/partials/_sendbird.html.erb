@@ -1,0 +1,59 @@
+<% if current_user.has_role? :admin %>
+  <script>
+    $("#sb_widget").click(function(){
+      $(".board-top .title").text("Mensajes");
+    });
+   sbWidget.start('0F630D9E-5FAC-47E3-AC70-E5BC29618273');
+  </script>
+<% else %>
+  <style>
+    .btn.ic-new-chat{display: none !important;}
+    .empty-item{display: none !important;}
+    .top .btn.ic-leave{ display: none !important }
+    .top .btn.ic-invite{ display: none !important }
+    .board-top .btn.ic-option{display: none !important;}
+  </style>
+  <script>
+    $("#sb_widget").click(function(){
+      $(".board-top .title").text("Mensajes");
+    });
+    sbWidget.startWithConnect('0F630D9E-5FAC-47E3-AC70-E5BC29618273', '<%=current_user.id%>', '<%=current_user.username%>');
+  </script>
+<% end %>
+<style>
+#sb_widget .widget {
+background-color: #926146;
+}
+#sb_widget .widget:hover, #sb_widget .widget:focus{
+background-color: #926146;
+}
+#sb_widget .channel-board .board-top {
+   background-color: #926146;
+   border-bottom: 1px solid #926146;
+ }
+ #sb_widget .channel-board .content .input:focus {
+   border: 1px solid #926146;
+   -webkit-box-shadow: 0 0 4px #ca987d;
+   -moz-box-shadow: 0 0 4px #ca987d;
+   box-shadow: 0 0 4px #ca987d;
+}
+#sb_widget .chat-section .message-set.user .message-item .text {
+   background: #926146;
+   color: #fff;
+}
+#sb_widget .chat-section .message-set .message-item .unread {
+   color: #ca987d;
+}
+#sb_widget .channel-board .board-top .title{
+   color: #fff;
+ }
+ #sb_widget .channel-board .board-top .btn.ic-minimize{
+   color: #fff;
+ }
+ #sb_widget .channel-board .board-top .btn.ic-option{
+   color: #fff;
+ }
+ #sb_widget .channel-board .board-top .btn.ic-new-chat{
+   color: #fff;
+ }
+</style>

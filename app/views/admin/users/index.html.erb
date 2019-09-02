@@ -1,0 +1,101 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<div class="col-md-10 offset-md-1 padding-btn-container">
+	<br>
+	<br>
+		<%= link_to "<i class='fa fa-plus-circle' aria-hidden='true'></i> Agregar Usuario".html_safe, new_admin_user_path, class: "btn btn-form-cancel" %>
+	<br>
+	<br>
+</div>
+<div class="col-md-10 offset-md-1 padding-btn-container">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="bg">
+				<div class="bg-ico">
+					<i class="fa fa-female"></i>
+				</div>
+				<div class="bg-text">
+					<b>Mujeres</b><br>
+					<span><%= User.where(genre: 'f').with_any_role(:tecnhical, :producer).count %></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="bg">
+				<div class="bg-ico">
+					<i class="fa fa-male"></i>
+				</div>
+				<div class="bg-text">
+					<b>Hombres</b><br>
+					<span><%= User.where(genre: 'm').with_any_role(:tecnhical, :producer).count %></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="bg">
+				<div class="bg-ico">
+					<i class="fa fa-user"></i>
+				</div>
+				<div class="bg-text">
+					<b>Técnicos</b><br>
+					<span><%= User.with_role(:tecnhical).count %></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="bg">
+				<div class="bg-ico">
+					<i class="fa fa-users"></i>
+				</div>
+				<div class="bg-text">
+					<b>Productores</b><br>
+					<span><%= User.with_role(:producer).count %></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><br>
+<div class="col-md-10 offset-md-1 padding-btn-container">
+	<div class="row">
+		<%= render partial: "admin/users/partials/filter" %>
+	</div>
+</div><br>
+<div class="edgar-container">
+	<div style="padding: 30px;">
+		<%= render partial: "admin/users/partials/users" %>
+	</div>
+	<br><br>
+	<%= render partial: "admin/users/partials/graph_users" %>
+</div>
+<style>
+	.bg{
+		background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+	}
+	.bg-ico{
+		float: left;
+    width: 35%;
+    text-align: center;
+    font-size: 35px;
+    background: #d1d1d1;
+    padding: 5px 8px;
+	}
+	.bg-text{
+		float: left;
+    padding: 4px 10px;
+    font-size: 0.9rem;
+	}
+	.page-item.active .page-link {
+    background-color: #955f43;
+    border-color: #955f43;
+	}
+	.page-link {
+    color: #955f43;
+  }
+  .page-link:hover {
+    color: #955f43;
+}
+</style>

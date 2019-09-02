@@ -1,0 +1,35 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Productor</th>
+			<th>País</th>
+			<th>Género</th>
+			<th>*Cambiar técnico</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% UserChat.where(user_technical: tec.id).each do |uc| %>
+		<% user = User.find(uc.user_producer) %>
+			<tr>
+				<td><%= user.username %></td>
+				<td><%= user.country.name %></td>
+				<td><%= user.genre == "m" ? "Masculino" : "Femenino" %></td>
+				<td><%= select_tag "producer_#{user.id}", options_from_collection_for_select(
+				@tecnhicals.where.not(id: tec.id), "id", "username"), class: "chosen", include_blank: true, style: "width: 100%;", value: uc.user_technical.present? ? uc.user_technical : '' %></td>
+			</tr>
+			<script>
+				$("#producer_<%=user.id%>").change(function(){
+					$.ajax({
+						url: "<%= admin_assignation_path(uc) %>",
+						data: { tecnhical: $(this).val() },
+						method: "PUT",
+						success: function(e){
+							console.log(e);
+							location.reload();
+						}
+					});
+				});
+			</script>
+		<% end %>
+	</tbody>
+</table>

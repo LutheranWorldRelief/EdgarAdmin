@@ -1,0 +1,27 @@
+<div class="bg-white col-md-10 offset-md-1">
+
+		<%= simple_form_for :filter, url: admin_users_path, method: :get do |f| %>
+		<div class="row">
+			<div class="form-group col-md-4">
+				<%= f.input :role, collection: [["", ""], ["Técnico", "tecnhical"], ["Productor", "producer"]], label: "Rol", input_html: { class: "form-control" }, selected: @s1, required: false %>
+			</div>
+			<div class="form-group col-md-4">
+				<%= f.input :gender, collection: [["",""], ["Masculino", "m"], ["Femenino", "f"]], label: "Género", input_html: { class: "form-control" }, selected: @s2, required: false %>
+			</div>
+			<div class="form-group col-md-4">
+				<%= f.input :age, collection: [["", ""], ["0-14", "a1"], ["15-24", "a2"], ["25-34", "a3"], ["35-44", "a4"], ["35-54", "a5"], ["55-64", "a6"], ["65-100", "a7"]], label: "Rango de edad", input_html: { class: "form-control" }, selected: @s3, required: false %>
+			</div>
+		</div>
+		<% end %>
+</div>
+<style>
+	.bg-white{
+		background-color: #fff;
+		padding: 20px;
+	}
+</style>
+<script>
+	$("select").change(function(){
+		$(".simple_form.filter").submit();
+	})
+</script>

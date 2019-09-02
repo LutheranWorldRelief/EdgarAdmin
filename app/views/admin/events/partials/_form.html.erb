@@ -1,0 +1,91 @@
+				<div class="form-group col-md-12">
+					<%= f.input :title, label: "Título:", label_html: { class: 'label-title'}, input_html: {class: 'col-md-12 form-control'}, placeholder: "Escriba el título del evento...", required: "required" %>
+				</div>
+				<div class="form-group col-md-6">
+					<div class="row">
+						<div class="col-md-12">
+							<%= f.input :category_event_id, collection: CategoryEvent.order(:created_at).map { |ce| [ce.name, ce.id]}, label: "Categoría", label_html: { class: 'label-title'}, input_html: { class: "select2 col-md-12 form-control"}, prompt: "-- Seleccione una categoría --", required: "required" %>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="form-group col-md-4">
+							<%= f.input :start, as: :string, label: "Fecha Inicio:", label_html: { class: 'label-title'}, input_html: { class: 'col-md-12 form-control datepicker ll-skin-vigo', value: "#{f.object.start.strftime('%d-%m-%Y') unless f.object.new_record?}", autocomplete: "off" }, placeholder: "01/01/2018", required: "required" %>
+						</div>
+						<div class="form-group col-md-4">
+							<%= f.input :end, as: :string, label: "Fecha Fin:", label_html: { class: 'label-title'}, input_html: { class: 'col-md-12 form-control datepicker ll-skin-vigo', value: "#{f.object.end.strftime('%d-%m-%Y') unless f.object.new_record?}", autocomplete: "off" }, placeholder: "01/01/2018", required: "required" %>
+						</div>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-4 offset-md-4">
+							<h5 class="text-center" style="color: #4a4a49;"><b>Fases de la luna</b></h5>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-md-2 offset-md-2 text-center">
+							<%= image_tag("fases_luna/luna_nueva.png", class:"img-fluid", style:"width: 30px; height: 30px; margin: auto; text-align: center;")%>
+							<br>
+							<p>Luna nueva</p>
+						</div>
+						<div class="col-md-2 text-center">
+							<%= image_tag("fases_luna/cuarto_creciente.png", class:"img-fluid", style:"width: 30px; height: 30px; margin: auto; text-align: center;")%>
+							<br>
+							<p>Cuarto creciente</p>
+						</div>
+						<div class="col-md-2 text-center">
+							<%= image_tag("fases_luna/luna_llena.png", class:"img-fluid", style:"width: 30px; height: 30px; margin: auto; text-align: center;")%>
+							<br>
+							<p>Luna llena</p>
+						</div>
+						<div class="col-md-2 text-center">
+							<%= image_tag("fases_luna/cuarto_menguante.png", class:"img-fluid", style:"width: 30px; height: 30px; margin: auto; text-align: center;")%>
+							<br>
+							<p>Cuarto menguante</p>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="form-group col-md-3">
+							<%= f.input :first_moon_cycle, label: "Fase Lunar 1", label_html: {class: 'label-title text-center'}, input_html: {class: 'col-md-12 form-control'}, collection: [['Ningúno','0'], ['Luna nueva','1'], ['Cuarto creciente','2'],['Luna llena','3'],['Cuarto menguante','4']], prompt: "-- Seleccione una Fase Lunar --" %>
+						</div>
+						<div class="form-group col-md-3">
+							<%= f.input :second_moon_cycle, label: "Fase Lunar 2", label_html: {class: 'label-title text-center'}, input_html: {class: 'col-md-12 form-control'}, collection: [['Ningúno','0'], ['Luna nueva','1'], ['Cuarto creciente','2'],['Luna llena','3'],['Cuarto menguante','4']], prompt: "-- Seleccione una Fase Lunar --" %>
+						</div>
+						<div class="form-group col-md-3">
+							<%= f.input :third_moon_cycle, label: "Fase Lunar 3", label_html: {class: 'label-title text-center'}, input_html: {class: 'col-md-12 form-control'}, collection: [['Ningúno','0'], ['Luna nueva','1'], ['Cuarto creciente','2'],['Luna llena','3'],['Cuarto menguante','4']], prompt: "-- Seleccione una Fase Lunar --" %>
+						</div>
+						<div class="form-group col-md-3">
+							<%= f.input :quarter_moon_cycle, label: "Fase Lunar 4", label_html: {class: 'label-title text-center'}, input_html: {class: 'col-md-12 form-control'}, collection: [['Ningúno','0'], ['Luna nueva','1'], ['Cuarto creciente','2'],['Luna llena','3'],['Cuarto menguante','4']], prompt: "-- Seleccione una Fase Lunar --" %>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="col-md-12">
+					<div class="form-group">
+						<%= f.label :description, label: "Descripción", class: 'label-title' %>
+						<%= f.input :description, label: false, input_html: { class: 'form-control' }, required: "required" %>
+					</div>
+					<div class="form-group">
+						<%= f.input :article, as: :ckeditor, input_html: { ckeditor: { toolbar: 'Full' } }, label: "Artículo:", label_html: {class: 'label-title'}, required: "required" %>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<%= f.label :status, label:"Estado del Evento", class: "label-title" %><br />
+			    <%= f.label :status, "Activado", :value => "true"  %>
+			    <%= f.radio_button :status, true %>
+			    <%= f.label :status, "Desactivado", :value => "false" %>
+			    <%= f.radio_button :status, false %>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<br>
+	          			<%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_events_path, class: "btn btn-form" %>
+						<%= f.submit ("Guardar") , class: "btn btn-form-cancel" %>
+					</div>
+				</div>

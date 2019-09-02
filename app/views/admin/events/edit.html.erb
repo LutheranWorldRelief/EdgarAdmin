@@ -1,0 +1,50 @@
+<br><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-10 offset-md-1" style="background-color: #5f852d; color: #fff;">
+			<br>
+			<h3 class="">Actualizar Evento</h3>
+			<br>
+		</div>
+		<div class="col-md-10 offset-md-1 edgar-container">
+			<% if @events.errors.any? %>
+				<div id="error_explanation">
+				  <h2>
+				    <%= "#{pluralize(@events.errors.count, "error")} error al almacenar:" %>
+				  </h2>
+				  <ul>
+				    <% @events.errors.full_messages.each do |msg| %>
+				      <li>
+				        <%= msg %>
+				      </li>
+				    <% end %>
+				  </ul>
+				</div>
+			<% end %>
+			<%= simple_form_for [:admin, @events] do |f| %>
+			<br>
+			<%= render partial: "admin/events/partials/form", locals: { f: f } %>	
+			<br>
+			<% end %>
+		</div>
+		<br>
+	</div>
+</div>
+<% content_for :script_links do %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/i18n/datepicker.es-ES.min.js"></script>
+<% end %>
+ 
+<script>
+ 	$(document).ready(function(){
+    $( ".datepicker" ).datepicker({
+    	language: 'es-ES',
+    	format: 'dd-mm-yyyy'
+    }); 		
+ 	});
+</script>
+  
+  
+  
+  

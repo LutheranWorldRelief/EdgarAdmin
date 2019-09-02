@@ -1,0 +1,32 @@
+<div class="col-md-8 offset-md-2 padding-btn-container">
+	<br>
+	<br>	
+		<%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_configurations_path, class: "btn btn-form float-right" %>
+		<%= link_to "<i class='fa fa-plus-circle' aria-hidden='true'></i> Agregar Categoría".html_safe, new_admin_category_event_path, class: "btn btn-form-cancel" %>
+	<br>
+	<br>
+</div>
+<div class="edgar-container col-md-8 offset-md-2" style="padding-right: 0px; padding-left: 0px;">
+	<table class="table">
+		<thead>
+			<tr>
+				<th width="80%">Nombre de la Categoría</th>
+				<th class="text-center" width="10%">Color</th>
+				<th class="text-center" width="10%"></th>
+			</tr>
+		</thead>
+		<tbody id="category_events">
+			<%- @category_events.each do |d| %>
+			<tr>
+				<td><%= d.name %></td>
+				<td class="text-center" style="position: relative; text-align: center;"><div style="width: 40px; height: 35px; background-color: <%= d.color %>; position: absolute; left: 1.5rem;" title="<%= d.color %>" class="text-center"></div></td>
+				<td class="text-center td-padding-none">
+					<%= link_to "<i class='fa fa-pencil-square-o' aria-hidden='true'></i>".html_safe, edit_admin_category_event_path(d), class: "btn btn-edit", style:"padding: 0px;text-align:center;" %>
+					<%= link_to "<i class='fa fa-trash-o' aria-hidden='true'></i>".html_safe, admin_category_event_path(d), method: :delete, data: {:confirm => "¿Esta seguro de eliminar esta categoría?" } , class: "btn btn-edit" %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	<%= will_paginate @category_events, class:"apple_pagination"  %>
+</div>

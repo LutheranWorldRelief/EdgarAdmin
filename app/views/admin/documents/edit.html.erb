@@ -1,0 +1,59 @@
+<br><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-10 offset-md-1" style="background-color: #5f852d; color: #fff;">
+			<br>
+			<h3 class="">Actualizar Documento</h3>
+			<br>
+		</div>
+		<div class="col-md-10 offset-md-1 edgar-container">
+			<% if @documents.errors.any? %>
+				<div id="error_explanation">
+				  <h2>
+				    <%= "#{pluralize(@documents.errors.count, "error")} error al almacenar:" %>
+				  </h2>
+				  <ul>
+				    <% @documents.errors.full_messages.each do |msg| %>
+				      <li>
+				        <%= msg %>
+				      </li>
+				    <% end %>
+				  </ul>
+				</div>
+			<% end %>
+			<%= simple_form_for [:admin, @documents] do |f| %>
+			<br>
+				<%#= render partial: "admin/documents/partials/form", locals: { f: f } %>
+				<div class="form-group col-md-8">
+					<%= f.input :name, label: "Título:", label_html: { class: 'label-title'}, input_html: {class: 'col-md-12 form-control'}, placeholder: "Escriba el nombre del documento...", required:'required' %>
+				</div>
+				<div class="form-group col-md-8">
+					<%= f.input :file, label: "Archivo:", label_html: { class: 'label-title'}, input_html: {class: 'col-md-12 form-control', accept: '.pdf'} %>
+				</div>
+				<div class="col-md-12">
+					<%= f.label :status, label:"Estado del Documento", class: "label-title" %><br />
+					<%= f.label :status, "Publicar", :value => "1"  %>
+					<%= f.radio_button :status, 1 %>
+					<%= f.label :status, "Ocultar", :value => "0" %>
+					<%= f.radio_button :status, 0 %>
+				</div>
+				<div class="col-md-12">
+					<div class="form-group">
+						<br>
+	          <%= link_to "<i class='fa fa-arrow-circle-left' aria-hidden='true'></i> Regresar".html_safe, admin_documents_path, class: "btn btn-form" %>
+						<%= f.submit ("Guardar") , class: "btn btn-form-cancel" %>
+					</div>
+				</div>
+				<br>
+			<% end %>
+		</div>
+		<br>
+	</div>
+</div>
+<% content_for :script_links do %>
+
+<% end %>
+  
+  
+  
+  
